@@ -22,14 +22,26 @@ app.get("/", function (req, res) {
     res.render('index');
 });
 
-app.get("/login", function (req, res) {
-    
+app.get("/home", function (req, res) {
     res.render('index');
-    new Vue({
-        
-        template: '<div>{{ hi }}</div>'
-    })
+});
 
+app.get("/browse", function (req, res) {
+    res.render('index');
+});
+
+
+
+app.get("/Register", function (req, res) {
+    res.render('register');
+});
+
+app.get("/Login", function (req, res) {
+    res.render('login');
+});
+
+app.get("/ForgotPassword", function (req, res) {
+    res.render('forgotpassword');
 });
 
 
