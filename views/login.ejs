@@ -52,83 +52,64 @@
   
 
 
-  <!-- Login Container -->
+    <!-- Login Container -->
 
-  <!-- ..................................................................................................................................... -->
-<div class="container" id="LoginContainer">
-  <div class="row"></div>
-  <div class="row"></div>
-  <div id="login-page" class="row">
-      <div class="col s12 m2 l4"> 
+    <!-- ..................................................................................................................................... -->
+    <div class="container" id="LoginContainer">
+      <div class="row"></div>
+      <div class="row"></div>
+      <div id="login-page" class="row">
+          <div class="col s12 m2 l4"> 
+          </div>
+          <div class="col s12 m8 l4 z-depth-4 card-panel">
+            <form class="login-form" action="/login-form-validate" method="GET">
+              <div class="row">
+                <div class="input-field col s12 center">
+                  <h3 class="center" style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Login</h3>
+                </div>
+              </div>
+              <div class="row margin">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="username" type="text"/>
+                  <label for="username" class="center-align">Username</label>
+                </div>
+              </div>
+              <div class="row margin center-align">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">lock</i>
+                  <input id="password" type="password"/>
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 ">
+                  <input type="submit" value="Login" style="background-color:#1dc072" class="btn waves-effect waves-light col s12"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6 m6 l6">
+                  <p class="margin medium-small"><a href="/Register">Register Now</a></p>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin right-align medium-small"><a href="/ForgotPassword">Forgot password</a></p>
+                </div>          
+              </div>
+            </form>
+          </div>
+          <div class="col s12 m2 l4"> <!-- Note that "m4 l3" was added -->
+        </div>
       </div>
-    <div class="col s12 m8 l4 z-depth-4 card-panel">
-      <form class="login-form">
-        <div class="row">
-          <div class="input-field col s12 center">
-            <h3 class="center " style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Login</h3>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Username</label>
-          </div>
-        </div>
-        <div class="row margin center-align">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">lock</i>
-            <input id="password" type="password">
-            <label for="password">Password</label>
-          </div>
-        </div>
-    
-        <div class="row">
-          <div class="input-field col s12 ">
-            <a href="index.html" style="background-color:#1dc072" class="btn waves-effect waves-light col s12">Login</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="/Register">Register Now</a></p>
-          </div>
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="/ForgotPassword">Forgot password</a></p>
-          </div>          
-        </div>
-
-      </form>
     </div>
+      <!-- ..................................................................................................................................... -->
 
-    <div class="col s12 m2 l4"> <!-- Note that "m4 l3" was added -->
-
-    </div>
-  </div>
-
-</div>
-  <!-- ..................................................................................................................................... -->
-
-
-
-
- 
-
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/meth.js"></script>
-  
-
-  <script>
-  $(".button-collapse").sideNav();
-
-
-
-
-  </script>
-
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/meth.js"></script>
+    <script>
+      $(".button-collapse").sideNav();
+    </script>
   </body>
-
+</html>
