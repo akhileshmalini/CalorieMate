@@ -1,0 +1,408 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Share your pics. Powered by Firebase.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Friendly Pix</title>
+        <link rel="shortcut icon" href="/images/favicon.png">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="styles/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="styles/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <link href="styles/animations.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
+        <link rel="icon" type="image/png" href="images/logoC.png" />
+        <script src="https://unpkg.com/vue"></script>
+
+        <!-- Disable tap highlight on IE -->
+            <meta name="msapplication-tap-highlight" content="no">
+
+        <!-- Web Application Manifest -->
+            <link rel="manifest" href="/manifest.json">
+
+        <!-- Add to home screen for Chrome on Android -->
+            <meta name="mobile-web-app-capable" content="yes">
+            <meta name="application-name" content="Friendly Pix">
+            <meta name="theme-color" content="#303F9F">
+            <link rel="icon" sizes="192x192" href="/images/touch/touch-icon-192x192.png">
+            <link rel="icon" sizes="128x128" href="/images/touch/touch-icon-128x128.png">
+
+        <!-- Add to home screen for Safari on iOS -->
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+            <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+            <link rel="apple-touch-icon" href="/images/touch/touch-icon-180x180.png">
+            <link rel="apple-touch-icon-precomposed" href="/images/touch/touch-icon-180x180.png">
+            <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F"> 
+
+        <!-- Tile icon for Win8 -->
+            <!-- <meta name="msapplication-TileImage" content="/images/touch/touch-icon-144x144.png">
+            <meta name="msapplication-TileColor" content="#3372DF">
+            <meta name="msapplication-navbutton-color" content="#303F9F"> -->
+
+    </head>
+    <body>
+
+        <nav style="display: none" class="navbar-material fp-signed-in-only">
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a id="navbar_dropdown_username" href="/profile">Username</a></li>
+                <li class="divider"></li>  
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo center "> <img src="images/logoC.png"></a>
+                <a href="#!" class="brand-logo hide-on-med-and-down">
+                <img src="images/logo.png">
+                </a>
+                <a href="#" id="navbar_username" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/home">Home</a>
+                    </li>
+                    <li><a href="/browse">Browse</a>
+                    </li>
+                    <li><a id="navbar_right_username" class="dropdown-button" href="#!" data-activates="dropdown1">Username<i class="material-icons right">arrow_drop_down</i></a></li>  
+                    </li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="/browse">Browse</a>
+                    </li>
+                    <li><a href="/home">Home</a>
+                    </li>
+                    <li><a id="navbar_mobile_username" href="/profile">Username</a>
+                    </li>
+                    <li class="active"><a  href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <section id="page-splash">
+            <div class="fp-signed-out-only carousel carousel-slider" style="display:inline-block">
+                <div id="particles-js"></div>
+                <div class="carousel-item "> 
+                    <div class="row">
+                        <div class="col s12 m3 l3"></div>
+                        <div class="col s12 m6 l6 center">
+                            <img class="animation-target" style="max-width:30%;height:auto;margin-top:10%;" src="images/strawberry.gif" alt="">
+                            <h3 class="animated bounceInLeft white-text" style="font-weight:250;">YOU ARE WHAT YOU EAT</h3>
+                            <h4 class="animated bounceInLeft white-text" style="font-weight:200;">SO EAT HEALTHY!</h4>
+                        </div>
+                        <div class="col s12 m3 l3"></div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="row">
+                        <div class="col s12 m3 l3"></div>
+                        <div class="col s12 m6 l6 center">
+                            <img class="animation-target" style="max-width:30%;height:auto;margin-top:10%;" src="images/carrot.gif" alt="">
+                            <h3 class="animated bounceInLeft white-text" style="font-weight:250;">"THE GREATEST WEALTH IS HEALTH"</h3>
+                            <h4 class="animated bounceInLeft white-text" style="font-weight:200;"><i>~Mahatma Gandhi</i></h4>   
+                        </div>
+                        <div class="col s12 m3 l3"></div>
+                    </div>
+                </div>    
+                <div class="carousel-item ">
+                    <div class="row">
+                        <div class="col s12 m3 l3"></div>
+                        <div class="col s12 m6 l6 center">
+                            <img class="animation-target" style="max-width:30%;height:auto;margin-top:10%;" src="images/gummy.gif" alt="">
+                            <h3 class="animated bounceInLeft white-text" style="font-weight:250;">DOES AN APPLE A DAY KEEP THE DOCTOR AWAY?</h3>
+                            <h4 class="animated bounceInLeft white-text" style="font-weight:200;"><i>~OUR QUESTION</i></h4> 
+                        </div>
+                        </div>
+                        <div class="col s12 m3 l3"></div>
+                    </div>
+                </div>
+                <div id="login_form_container" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="input-field col s12 center">
+                                <h3 class="center " style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Login</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="login_user_name" type="text" class="validate">
+                                        <label for="login_user_name">User Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">lock</i>
+                                        <input id="login_password" type="password">
+                                        <label for="login_password">Password</label>
+                                    </div>
+                                </div>       
+                                <div class="row">
+                                    <div class="input-field center center-align col s12 ">
+                                        <button id="login_submit" type="submit" value="Login" style="background-color:#1dc072" class="btn waves-effect waves-light col s12">Login</button>
+                                    </div>
+                                </div>       
+                        </div>
+                        <div id="signin_error" class="row" style="display:none; color:red">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#pass_reset_form_container" class="modal-action modal-trigger modal-close waves-effect waves-green btn-flat" style="color:red">Forgot password ?</a>
+                    </div>
+                </div>
+                <div id="signup_form_conatiner" class="modal">
+                    <div class="modal-content">
+                            <div class="row">
+                                <div class="input-field col s12 center">
+                                    <h3 class="center" style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Sign Up</h3>
+                                </div>
+                            </div>   
+                            <div class="row">
+                                <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="signup_user_name" type="text" class="validate">
+                                    <label for="signup_user_name">Email Id</label>
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="signup_dob" type="text" class="datepicker">
+                                    <label for="signup_dob" class="center-align">Date of Birth</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="signup_password" type="password" class="validate">
+                                    <label for="signup_password">Password</label>
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="signup_verify_password" type="password" class="validate">
+                                    <label for="signup_verify_password">Verify Password</label>
+                                </div>
+                            </div>
+                            <div id="signup_error" class="row" style="display:none; color:red">
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field center center-align col s12 ">
+                                    <button id="signup_submit" type="submit" value="Signup" style="background-color:#1dc072" class="btn waves-effect waves-light col s12">SignUp</button>
+                                </div>
+                            </div>           
+                            </div>
+                        </div>
+                </div>
+                <div id="pass_reset_form_container" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="input-field col s12 center">
+                                <h3 class="center " style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Login</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="pass_reset_email" type="text" class="validate">
+                                    <label for="pass_reset_email">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field center center-align col s12 ">
+                                    <button id="pass_reset_submit" type="submit" value="Reset" style="background-color:#1dc072" class="btn waves-effect waves-light col s12">Reset</button>
+                                </div>
+                            </div>       
+                        </div>
+                        <div id="pass_reset_error" class="row" style="display:none; color:red">
+                        </div>
+                    </div>
+                </div>
+                <button id="login_button" class="large-screen-only fp-signed-out-only waves-effect waves-light btn btn-large overlay_button modal-trigger" href="#login_form_container"><i class="material-icons right">send</i>Login</button>            
+                <button id="signup_button" class="large-screen-only fp-signed-out-only waves-effect waves-light btn btn-large overlay_button modal-trigger" href="#signup_form_conatiner"><i class="material-icons right">cloud</i>SignUp</button>                        
+                <div class="fixed-action-btn click-to-toggle small-screen-only">
+                    <a class="btn-floating btn-large red">
+                      <i class="large material-icons">menu</i>
+                    </a>
+                    <ul>
+                      <li><a class="btn waves-effect waves-light modal-trigger" href="#login_form_container">Login</a></li>
+                      <li><a class="btn waves-effect waves-light modal-trigger" href="#signup_form_container">Signup<i class="material-icons">format_quote</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <main class="mdl-layout__content mdl-color--grey-100">    
+            <!-- Show a feed of posts -->
+            <section id="page-home" class="mdl-grid fp-content" style="display: none; background: black">
+                <button id="logout">Logout</button>
+            </section>
+            <section id="page-browse" class="mdl-grid fp-content" style="display: none;">
+                <button>Logout</button>
+            </section>
+            <section id="page-profile" style="top:0; bottom:0; left:0; right:0;" class="mdl-grid fp-content" style="display: none;">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card-panel hoverable col s12 m6">
+                            <div class="card col s12">
+                                <div class="card-image col s12">
+                                    <img id="user-dp" style='object-fit: contain' src="images/carrot.gif"/>
+                                    <span class="card-title">Card Title</span>
+                                    <a class="btn-floating btn-large tooltipped halfway-fab waves-effect waves-light red" data-position="top" data-delay="25" data-tooltip="Edit profile"><i class="material-icons">edit</i></a>
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        </div>
+
+        <!-- Page.js -->
+        <script src="/libs/page/page.js"></script>
+
+        <!-- jQuery -->
+        <script src="/libs/jquery/dist/jquery.min.js"></script>
+        <script src="scripts/materialize.js"></script>
+        <script src="scripts/init.js"></script>
+        <script src="scripts/particles.min.js"></script>
+        <script src="scripts/meth.js"></script>
+
+        <!-- Latinize -->
+        <script src="/libs/latinize/latinize.js"></script>
+
+        <script src="/__/firebase/4.1.3/firebase.js"></script>
+        <script src="/__/firebase/init.js"></script>
+
+        <!-- Friendly Pix ES5 scripts -->
+        <!-- <script src="/scripts-es5/utils.js"></script> -->
+        <script src="/scripts-es5/firebase.js"></script>
+        <script src="/scripts-es5/auth.js"></script>
+        <!-- <script src="/scripts-es5/search.js"></script> -->
+        <!-- <script src="/scripts-es5/uploader.js"></script> -->
+        <!-- <script src="/scripts-es5/messaging.js"></script> -->
+        <!-- <script src="/scripts-es5/userpage.js"></script> -->
+        <!-- <script src="/scripts-es5/post.js"></script> -->
+        <!-- <script src="/scripts-es5/feed.js"></script> -->
+        <script src="/scripts-es5/routing.js"></script>
+
+
+        <style>
+            body {
+                min-height: 500px;
+            }
+            .overlay_button {
+                margin: 0 auto;
+                text-align: center;
+                position:absolute;
+                z-index:50;
+            }
+            #login_button {
+                bottom:10%;
+                left:23%;
+            }
+            #signup_button {
+                bottom:10%;
+                right:23%;
+            }
+            #login_form_container {
+                max-height: 90%;
+                max-width: 400px;
+            }
+            #signup_form_container {
+                max-height: 100%;
+                overflow: auto;
+            }
+
+            .modal-form-row {
+                margin-bottom: 0px;
+            }
+        </style>
+        <script>
+            $('#login_button').click(() => {
+                $('#signup_error').css('display', 'none');
+            });
+            $('#signup_button').click(() => {
+                $('#signup_error').css('display', 'none');
+            });
+            $(document).ready( () => {
+            var small_screen_width = 600;
+            if ($(window).width() >= small_screen_width){
+                $('.small-screen-only').css('display', 'none');
+            }else {
+                $('.large-screen-only').css('display', 'none');
+            }
+            $(window).on('resize', function(){
+                // $('.carousel').removeClass('initialized');
+                // $('.carousel').carousel({fullWidth: true});
+                if (firebase.auth().currentUser == null)
+                    location.reload();
+                console.log($(window).width());
+                if ($(window).width() >= small_screen_width){
+                    $('.small-screen-only').css('display', 'none');
+                    $('.large-screen-only').css('display', '');
+                }else {
+                    $('.small-screen-only').css('display', '');
+                    $('.large-screen-only').css('display', 'none');
+                }
+            });
+            $("body").css("overflow", "hidden");
+            $(".button-collapse").sideNav();
+            $('.carousel.carousel-slider').carousel({fullWidth: true});
+            autoplay()   
+            function autoplay() {
+                $('.carousel').carousel('next');
+                setTimeout(autoplay, 3000);
+            }
+            particlesJS.load('particles-js', 'scripts/particles.json', function() {
+                console.log('callback - particles.js config loaded');
+            });
+            
+            $('.modal').modal({
+                // dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                opacity: .5, // Opacity of modal background
+                inDuration: 300, // Transition in duration
+                outDuration: 200, // Transition out duration
+                startingTop: '4%', // Starting top style attribute
+                endingTop: '10%', // Ending top style attribute
+                // ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+                //     alert("Ready");
+                //     console.log(modal, trigger);
+                // },
+                // complete: function() { alert('Closed'); } // Callback for Modal close
+            });
+            $('.datepicker').css('height','50px');
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears:110,
+                max: true,
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+           });
+
+        </script>
+
+
+
+        <!-- Friendly Pix ES2015 scripts -->
+        <!-- Uncomment and replace scripts above to serve ES2015 scripts directly -->
+        <!-- <script src="/scripts/utils.js"></script>
+        <script src="/scripts/firebase.js"></script>
+        <script src="/scripts/auth.js"></script>
+        <script src="/scripts/search.js"></script>
+        <script src="/scripts/uploader.js"></script>
+        <script src="/scripts/messaging.js"></script>
+        <script src="/scripts/userpage.js"></script>
+        <script src="/scripts/post.js"></script>
+        <script src="/scripts/feed.js"></script>
+        <script src="/scripts/routing.js"></script> -->
+    </body>
+</html>

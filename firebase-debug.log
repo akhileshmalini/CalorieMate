@@ -1,0 +1,79 @@
+[debug] [2017-10-09T14:13:27.715Z] ----------------------------------------------------------------------
+[debug] [2017-10-09T14:13:27.719Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Shyam\Desktop\Projects\CalorieMate\node_modules\firebase-tools\bin\firebase serve -p 5000
+[debug] [2017-10-09T14:13:27.719Z] CLI Version:   3.13.1
+[debug] [2017-10-09T14:13:27.720Z] Platform:      win32
+[debug] [2017-10-09T14:13:27.720Z] Node Version:  v8.6.0
+[debug] [2017-10-09T14:13:27.720Z] Time:          Mon Oct 09 2017 19:43:27 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T14:13:27.720Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-09T14:13:27.737Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-09T14:13:27.738Z] > authorizing via signed-in user
+[debug] [2017-10-09T14:13:27.740Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-09T14:13:27.741Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/ieJsq-lxgDAkzVtvB_e26br2Jt1DzVp4cg-Bh925Jj8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Oct 09 2017 19:43:27 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T14:13:28.050Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T14:13:28.075Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/caloriemate-7b2a6  
+ Mon Oct 09 2017 19:43:28 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T14:13:29.232Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T14:13:29.233Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/caloriemate-7b2a6/tokens  
+ Mon Oct 09 2017 19:43:29 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T14:13:30.137Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Shyam\Desktop\Projects\CalorieMate'...
+[info] 
+[debug] [2017-10-09T14:13:30.140Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/caloriemate-7b2a6  
+ Mon Oct 09 2017 19:43:30 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T14:13:31.508Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T14:13:31.509Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/632835086657/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 19:43:31 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T14:13:32.329Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-10-09T15:17:18.225Z] ----------------------------------------------------------------------
+[debug] [2017-10-09T15:17:18.228Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Shyam\Desktop\Projects\CalorieMate\node_modules\firebase-tools\bin\firebase serve -p 5000
+[debug] [2017-10-09T15:17:18.228Z] CLI Version:   3.13.1
+[debug] [2017-10-09T15:17:18.228Z] Platform:      win32
+[debug] [2017-10-09T15:17:18.228Z] Node Version:  v8.6.0
+[debug] [2017-10-09T15:17:18.229Z] Time:          Mon Oct 09 2017 20:47:18 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:18.229Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-09T15:17:18.244Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-09T15:17:18.244Z] > authorizing via signed-in user
+[debug] [2017-10-09T15:17:18.246Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-09T15:17:18.246Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/ieJsq-lxgDAkzVtvB_e26br2Jt1DzVp4cg-Bh925Jj8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Oct 09 2017 20:47:18 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:18.686Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T15:17:18.764Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/caloriemate-7b2a6  
+ Mon Oct 09 2017 20:47:18 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:19.972Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T15:17:19.974Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/caloriemate-7b2a6/tokens  
+ Mon Oct 09 2017 20:47:19 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:21.085Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Shyam\Desktop\Projects\CalorieMate'...
+[info] 
+[debug] [2017-10-09T15:17:21.091Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/caloriemate-7b2a6  
+ Mon Oct 09 2017 20:47:21 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:22.495Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T15:17:22.496Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/632835086657/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 20:47:22 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:24.009Z] <<< HTTP RESPONSE 200
+[warn] !  hosting: Port 5000 is not available. Trying another port...
+[debug] [2017-10-09T15:17:24.026Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/caloriemate-7b2a6  
+ Mon Oct 09 2017 20:47:24 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:24.457Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T15:17:24.458Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/632835086657/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 20:47:24 GMT+0530 (India Standard Time)
+[debug] [2017-10-09T15:17:25.107Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5004
+
