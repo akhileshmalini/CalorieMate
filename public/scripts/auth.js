@@ -64,15 +64,6 @@ friendlyPix.Auth = class {
     this.password = document.getElementById('signup_password').value;
     this.dob = document.getElementById('signup_dob').value;
     this.verify_pas = document.getElementById('signup_verify_password').value;
-    if (this.password != this.verify_pas){
-      $('#signup_error').css('display', '');
-      document.getElementById('signup_error').innerHTML = 'The passwords donot match.';
-      return;
-    }
-    else {
-      $('#signup_error').css('display', 'none');
-      return;
-    }
     if (this.email.length < 4) {
       $('#signup_error').css('display', '');
       document.getElementById('signup_error').innerHTML = 'Please enter an email address.';
@@ -81,6 +72,11 @@ friendlyPix.Auth = class {
     if (this.password.length < 4) {
       $('#signup_error').css('display', '');
       document.getElementById('signup_error').innerHTML = 'Please enter a password.';      
+      return;
+    }
+    if (this.password != this.verify_pas){
+      $('#signup_error').css('display', '');
+      document.getElementById('signup_error').innerHTML = 'The passwords donot match.';
       return;
     }
     // Sign in with email and pass.
@@ -177,7 +173,7 @@ friendlyPix.Auth = class {
         document.getElementById('navbar_dropdown_username').innerHTML = firebase.auth().currentUser.email.toString();
         document.getElementById('navbar_right_username').innerHTML = firebase.auth().currentUser.email.toString();
         document.getElementById('navbar_mobile_username').innerHTML = firebase.auth().currentUser.email.toString();
-        page('/home');
+        page('/profile');
         
         // return;
         // this.userId = user.uid;

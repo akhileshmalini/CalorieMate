@@ -4,7 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Share your pics. Powered by Firebase.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Friendly Pix</title>
+        <title>Calorie Mate</title>
         <link rel="shortcut icon" href="/images/favicon.png">
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -82,7 +82,7 @@
 
 
         <section id="page-splash">
-            <div class="fp-signed-out-only carousel carousel-slider" style="display:inline-block">
+            <div id="splash_carousel" class="fp-signed-out-only carousel carousel-slider" style="display:inline-block">
                 <div id="particles-js"></div>
                 <div class="carousel-item "> 
                     <div class="row">
@@ -184,7 +184,7 @@
                                     <label for="signup_verify_password">Verify Password</label>
                                 </div>
                             </div>
-                            <div id="signup_error" class="row" style="display:none; color:red">
+                            <div id="signup_error" class="row" style="color:red">
                             </div>
                             </div>
                             <div class="row">
@@ -237,17 +237,52 @@
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <main class="mdl-layout__content mdl-color--grey-100">    
             <!-- Show a feed of posts -->
-            <section id="page-home" class="mdl-grid fp-content" style="display: none; background: black">
-                <button id="logout">Logout</button>
+            <section id="page-home" class="mdl-grid fp-content" style="display: none;">
+
             </section>
             <section id="page-browse" class="mdl-grid fp-content" style="display: none;">
-                <button>Logout</button>
+                <div class="row">
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+                
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">one</a></li>
+                        <li><a href="#!">two</a></li>
+                        <li class="divider"></li>
+                    </ul>
+                </div>
+                    
+                <div class="row">
+                    <div class="col s12 m3">
+                      <div class="card hoverable blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title small">ALMONDS; WHOLE 1 OZ</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                          <span style="float: left">Calories(kcal)</span>
+                          <span style="float: right">165</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Protein (g)</span>
+                            <span style="float: right">6</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Fat (g)</span>
+                            <span style="float: right">15</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Carbohydrate (g)</span>
+                            <span style="float: right">6</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </section>
-            <section id="page-profile" style="top:0; bottom:0; left:0; right:0;" class="mdl-grid fp-content" style="display: none;">
+            <section id="page-profile" style="top:0; bottom:0; left:0; right:0;" class="mdl-grid fp-content fp-signed-in-only" style="display: none;">
                 <div class="row">
                     <div class="col s12 m6">
-                        <div class="card-panel hoverable col s12 m6">
-                            <div class="card col s12">
+                            <div class="card col s12 m6">
                                 <div class="card-image col s12">
                                     <img id="user-dp" style='object-fit: contain' src="images/carrot.gif"/>
                                     <span class="card-title">Card Title</span>
@@ -323,6 +358,9 @@
             .modal-form-row {
                 margin-bottom: 0px;
             }
+            #search_autocomplete {
+                align-content: bottom right;
+            }
         </style>
         <script>
             $('#login_button').click(() => {
@@ -332,6 +370,7 @@
                 $('#signup_error').css('display', 'none');
             });
             $(document).ready( () => {
+                var obj = jQuery('#splash-carousel').clone();
             var small_screen_width = 600;
             if ($(window).width() >= small_screen_width){
                 $('.small-screen-only').css('display', 'none');
@@ -341,9 +380,7 @@
             $(window).on('resize', function(){
                 // $('.carousel').removeClass('initialized');
                 // $('.carousel').carousel({fullWidth: true});
-                if (firebase.auth().currentUser == null)
-                    location.reload();
-                console.log($(window).width());
+                // console.log($(window).width());
                 if ($(window).width() >= small_screen_width){
                     $('.small-screen-only').css('display', 'none');
                     $('.large-screen-only').css('display', '');
@@ -351,7 +388,25 @@
                     $('.small-screen-only').css('display', '');
                     $('.large-screen-only').css('display', 'none');
                 }
+                if (firebase.auth().currentUser == null){
+                    // location.reload();
+                    $('#splash_carousel').closest(".carousel-slider").replaceWith($(this).clone());
+                    $('#splash_carousel').carousel({fullWidth: true});
+                }
             });
+            
+            $('#search_autocomplete').autocomplete({
+                    data: {
+                    "Apple": null,
+                    "Microsoft": null,
+                    "Google": 'https://placehold.it/250x250'
+                    },
+                    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+                    onAutocomplete: function(val) {
+                    // Callback function when value is autcompleted.
+                    },
+                    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+                });
             $("body").css("overflow", "hidden");
             $(".button-collapse").sideNav();
             $('.carousel.carousel-slider').carousel({fullWidth: true});
