@@ -1,12 +1,5 @@
 # Caloire Mate
 
-Friendly Pix Web is a sample app demonstrating how to build a JavaScript/Web app with the Firebase Platform.
-
-Friendly Pix is a place where you can share photos, follow friends, comment on photos...
-
-
-
-
 ## Create and configure your Firebase Project
 
 1. In a console run `npm install` to install all Build/Deploy tools dependencies.
