@@ -1,16 +1,15 @@
 {
   "name": "caloriemate",
-  "description": "Share your pics with FriendlyPix. Powered by Firebase.",
   "version": "1.0.0",
   "authors": [
     "Shyam Sundar K <sundarshyam030@gmail.com>",
     "Akhilesh Anand <akhileshmalini@gmail.com>",
     "Anagha Menon <>"
   ],
-  "homepage": "https://friendly-pix.com/",
+  // "homepage": "https://friendly-pix.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/firebase/friendlypix"
+    "url": "https://github.com/akhileshmalini/CalorieMate"
   },
   "license": "Apache v2.0",
   "keywords": [
