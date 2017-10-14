@@ -2,8 +2,8 @@
   "scripts": {
     "build": "npm install; babel public/scripts -s --minified --compact true -d public/scripts-es5; bower install; cd functions; npm install; cd -; echo 'Done. Ready to deploy.'",
     "dep": "npm install -d & bower install",
-    "serve": "firebase serve -p 5000",
-    "cast":"firebase serve -o 0.0.0.0 -p 5001",
+    "serve": "firebase serve -p 3000",
+    "cast": "firebase serve -o 0.0.0.0 -p 5001",
     "watch": "babel -w public/scripts -s --retain-lines -d public/scripts-es5"
   },
   "devDependencies": {

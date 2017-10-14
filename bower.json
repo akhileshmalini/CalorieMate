@@ -1,12 +1,12 @@
 {
   "name": "caloriemate",
   "version": "1.0.0",
+  "description": "Keep track of your consumtion.",
   "authors": [
     "Shyam Sundar K <sundarshyam030@gmail.com>",
     "Akhilesh Anand <akhileshmalini@gmail.com>",
     "Anagha Menon <>"
   ],
-  // "homepage": "https://friendly-pix.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/akhileshmalini/CalorieMate"

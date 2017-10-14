@@ -1,81 +1,37 @@
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 'use strict';
 
 window.friendlyPix = window.friendlyPix || {};
-
-/**
- * Handles the pages/routing.
- */
 friendlyPix.Router = class {
 
-  /**
-   * Initializes the Friendly Pix controller/router.
-   * @constructor
-   */
   constructor() {
     $(document).ready(() => {
       friendlyPix.auth.waitForAuth.then(() => {
-        // Dom elements.
         this.pagesElements = $('[id^=page-]');
         this.splashLogin = $('#page-splash');
 
-        // Make sure /add is never opened on website load.
         if (window.location.pathname === '/add') {
           page('/');
         }
 
-        // Configuring routes.
         const pipe = friendlyPix.Router.pipe;
         const displayPage = this.displayPage.bind(this);
-        // const loadUser = userId => friendlyPix.userPage.loadUser(userId);
-        // const showHomeFeed = () => friendlyPix.feed.showHomeFeed();
-        // const showGeneralFeed = () => friendlyPix.feed.showGeneralFeed();
         const clearFeed = () => friendlyPix.feed.clear();
         const goHome = () => friendlyPix.firebase.home();
         const browse = () => friendlyPix.firebase.browseFood();
         const loadProfile = () => friendlyPix.auth.loadProfile();
         const logout = () => friendlyPix.auth.signOutHandler();
-        // const showPost = postId => friendlyPix.post.loadPost(postId);
 
-        // page('/', pipe(showHomeFeed, null, true),
-            // pipe(displayPage, {pageId: 'feed', onlyAuthed: true}));
-        // page('/feed', pipe(showGeneralFeed, null, true), pipe(displayPage, {pageId: 'feed'}));
-        // page('/post/:postId', pipe(showPost, null, true), pipe(displayPage, {pageId: 'post'}));
-        // page('/user/:userId', pipe(loadUser, null, true), pipe(displayPage, {pageId: 'user-info'}));
         page('/home', pipe(goHome, null, true), pipe(displayPage, {pageId: 'home', onlyAuthed: true}));
         page('/browse', pipe(browse, null, true), pipe(displayPage, {pageId: 'browse', onlyAuthed: true}));
         page('/profile', pipe(loadProfile, null, true), pipe(displayPage, {pageId: 'profile', onlyAuthed: true}));
         page('/logout', pipe(logout, null, true), pipe(displayPage, {pageId: ''}));
-        // page('*', () => page('/'));
-
-        // Start routing.
         page();
       });
     });
   }
 
-  /**
-   * Returns a function that displays the given page and hides the other ones.
-   * if `onlyAuthed` is set to true then the splash page will be displayed instead of the page if
-   * the user is not signed-in.
-   */
   displayPage(attributes, context) {
     const onlyAuthed = attributes.onlyAuthed;
-      // alert('routing');
       let pageId = attributes.pageId;
 
     if (onlyAuthed && !firebase.auth().currentUser) {
@@ -85,26 +41,19 @@ friendlyPix.Router = class {
     friendlyPix.Router.setLinkAsActive(context.canonicalPath);
     this.pagesElements.each(function(index, element) {
       if (element.id === 'page-' + pageId) {
-        // this.splashLogin.hide();
+        console.log(element);
         $(element).show();
-      } else if (element.id === 'page-splash') {
-        $(element).fadeOut(1000);
       } else {
         $(element).hide();
+        console.log(element);        
       }
     });
-    // friendlyPix.MaterialUtils.closeDrawer();
+    console.log(window.location.pathname);  
     friendlyPix.Router.scrollToTop();
   }
 
-  /**
-   * Reloads the current page.
-   */
   reloadPage() {
     let path = window.location.pathname;
-    if (path === '') {
-      path = '/';
-    }
     page(path);
   }
 

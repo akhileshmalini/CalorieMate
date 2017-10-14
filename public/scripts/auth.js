@@ -13,19 +13,9 @@ friendlyPix.Auth = class {
     this.auth = firebase.auth();
     this._waitForAuthPromiseResolver = new $.Deferred();
     this.signedInState = 0;
-    $(document).ready(() => {/*
-      // Pointers to DOM Elements
-      const signedInUserContainer = $('.fp-signed-in-user-container');
-      this.signedInUserAvatar = $('.fp-avatar', signedInUserContainer);
-      this.signedInUsername = $('.fp-username', signedInUserContainer);
-      this.signOutButton = $('.fp-sign-out');*/
+    $(document).ready(() => {
       this.signedOutOnlyElements = $('.fp-signed-out-only');
-      this.signedInOnlyElements = $('.fp-signed-in-only');/*
-      this.usernameLink = $('.fp-usernamelink');
-
-      // Event bindings
-      this.signOutButton.click(() => this.auth.signOut());
-      this.signedInOnlyElements.hide();*/
+      this.signedInOnlyElements = $('.fp-signed-in-only');
 
       this.signInButton = $('#login_submit');
       this.signInButton.click(() => this.signInHandler());
@@ -47,19 +37,15 @@ friendlyPix.Auth = class {
   passwordResetHandler(){
     var email = document.getElementById('pass_reset_email').value;
     firebase.auth().sendPasswordResetEmail(email).then(function() {
-      // Email sent.
-      // page('/');
       location.reload();
       alert('Password Reset link has been sent to the email address');
     }).catch(function(error) {
-      // An error happened.
       $('#pass_reset_error').css('display', '');
       document.getElementById('pass_reset_error').innerHTML = error.errorMessage;
     });
   }
 
   signUpHandler(){
-    // alert('signing up');
     this.email = document.getElementById('signup_user_name').value;
     this.password = document.getElementById('signup_password').value;
     this.dob = document.getElementById('signup_dob').value;
@@ -79,15 +65,11 @@ friendlyPix.Auth = class {
       document.getElementById('signup_error').innerHTML = 'The passwords donot match.';
       return;
     }
-    // Sign in with email and pass.
-    // [START createwithemail]
     firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function(){
       
     }).catch(function(error) {
-      // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      // [START_EXCLUDE]
       $('#signup_error').css('display', '');
       if (errorCode == 'auth/weak-password') {
         document.getElementById('signup_error').innerHTML = 'The password is too weak.';
@@ -95,10 +77,7 @@ friendlyPix.Auth = class {
         document.getElementById('signup_error').innerHTML = errorMessage;
       }
       return;
-      // console.log(error);
-      // [END_EXCLUDE]
     });
-    // [END createwithemail]
   }
   
   signOutHandler(){
@@ -118,21 +97,15 @@ friendlyPix.Auth = class {
       document.getElementById('signin_error').innerHTML = 'Please enter the password';
       return
     }
-    // Sign in with email and pass.
-    // [START authwithemail]
     firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
-      // Handle Errors here.
       $('#signin_error').css('display', '');
       var errorCode = error.code;
       var errorMessage = error.message;
-      // [START_EXCLUDE]
       if (errorCode === 'auth/wrong-password') {
       document.getElementById('signin_error').innerHTML = 'Wrong Password';
       }else {
       document.getElementById('signin_error').innerHTML = errorMessage;
       }
-      // console.log(error);
-      // [END_EXCLUDE]
     });
     
     
@@ -142,50 +115,35 @@ friendlyPix.Auth = class {
   loadProfile() {
     
   }
-
-  /**
-   * Displays the signed-in user information in the UI or hides it and displays the
-   * "Sign-In" button if the user isn't signed-in.
-   */
+  
   onAuthStateChanged(user) {
     if (window.friendlyPix.router) {
       window.friendlyPix.router.reloadPage();
     }
     this._waitForAuthPromiseResolver.resolve();
     $(document).ready(() => {
-      // alert('alert');
       if (!user) {
-        // alert('Signed Out');
         this.signedOutOnlyElements.show();
         this.signedInOnlyElements.hide();
+        friendlyPix.state = 0;
         page('/');
-
-        console.log(firebase.auth());
-
-        // this.userId = null;
-        // this.signedInUserAvatar.css('background-image', '');
       } else {
-        // alert('Signed In');
-        // alert(user.uid.toString());
+        console.log(friendlyPix.state);
         this.signedOutOnlyElements.hide();
         this.signedInOnlyElements.show();
         document.getElementById('navbar_username').innerHTML = firebase.auth().currentUser.email.toString();
         document.getElementById('navbar_dropdown_username').innerHTML = firebase.auth().currentUser.email.toString();
         document.getElementById('navbar_right_username').innerHTML = firebase.auth().currentUser.email.toString();
         document.getElementById('navbar_mobile_username').innerHTML = firebase.auth().currentUser.email.toString();
-        page('/profile');
-        
-        // return;
-        // this.userId = user.uid;
-        // this.signedInUserAvatar.css('background-image',
-            // `url("${user.photoURL || '/images/silhouette.jpg'}")`);
-        // this.signedInUsername.text(user.displayName || 'Anonymous');
-        // this.usernameLink.attr('href', `/user/${user.uid}`);
-        // friendlyPix.firebase.saveUserData(user.photoURL, user.displayName);
+        if (window.location.pathname == '/'){
+            page('/browse');
+            window.location.reload();
+        }
+        else
+          page(window.location.pathname);
       }
     });
   }
 };
 
 friendlyPix.auth = new friendlyPix.Auth();
-friendlyPix.Auth.signedInState = 0;

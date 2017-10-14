@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,13 +16,13 @@
 
 
         <link rel="icon" type="image/png" href="images/logoC.png" />
-        <script src="https://unpkg.com/vue"></script>
+        <script src="scripts/vue.js"></script>
 
         <!-- Disable tap highlight on IE -->
             <meta name="msapplication-tap-highlight" content="no">
 
         <!-- Web Application Manifest -->
-            <link rel="manifest" href="/manifest.json">
+            <link rel="manifest" href="manifest.json">
 
         <!-- Add to home screen for Chrome on Android -->
             <meta name="mobile-web-app-capable" content="yes">
@@ -54,8 +54,8 @@
                 <li><a href="/logout">Logout</a></li>
             </ul>
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo center "> <img src="images/logoC.png"></a>
-                <a href="#!" class="brand-logo hide-on-med-and-down">
+                <a href="/browse" class="brand-logo center "> <img src="images/logoC.png"></a>
+                <a href="/browse" class="brand-logo hide-on-med-and-down">
                 <img src="images/logo.png">
                 </a>
                 <a href="#" id="navbar_username" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -79,7 +79,6 @@
                 </ul>
             </div>
         </nav>
-
 
         <section id="page-splash">
             <div id="splash_carousel" class="fp-signed-out-only carousel carousel-slider" style="display:inline-block">
@@ -122,7 +121,7 @@
                     <div class="modal-content">
                         <div class="row">
                             <div class="input-field col s12 center">
-                                <h3 class="center " style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Login</h3>
+                                <h3 class="center" style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">Login</h3>
                             </div>
                         </div>
                         <div class="row">
@@ -240,24 +239,75 @@
             <section id="page-home" class="mdl-grid fp-content" style="display: none;">
 
             </section>
-            <section id="page-browse" class="mdl-grid fp-content" style="display: none;">
+            <section id="page-browse" class="mdl-grid fp-content" style="display: none; overflow: auto">
                 <div class="row">
-                    <!-- Dropdown Trigger -->
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-                
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">one</a></li>
-                        <li><a href="#!">two</a></li>
-                        <li class="divider"></li>
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">search</i>Search</div>
+                            <div class="collapsible-body" style="background: white; height: 10px;">
+                                <div class="row">
+                                    <div class="col s12 m6">
+                                        <input id="search_input" type="text" class="autocomplete" placeholder="Enter Value">
+                                    </div>
+                                    <div class="col s12 m6">
+                                        <button id="search_button" class="btn waves-effect waves-light"><i class="material-icons left">search</i>Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                    
                 <div class="row">
                     <div class="col s12 m3">
-                      <div class="card hoverable blue-grey darken-1">
-                        <div class="card-content white-text">
-                          <span class="card-title small">ALMONDS; WHOLE 1 OZ</span>
+                      <div class="card hoverable white darken-1">
+                        <div class="card-content green-text">
+                          <span style="height: 50px;" class="card-title small">APPLE PIE 1 PIE</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                          <span style="float: left">Calories(kcal)</span>
+                          <span style="float: right">2420</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Protein (g)</span>
+                            <span style="float: right">21</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Fat (g)</span>
+                            <span style="float: right">105</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Carbohydrate (g)</span>
+                            <span style="float: right">360</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m3">
+                      <div class="card hoverable white darken-1">
+                        <div class="card-content green-text">
+                          <span style="height: 50px;" class="card-title small">APPLE JUICE; CANNED 1 CUP</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                          <span style="float: left">Calories(kcal)</span>
+                          <span style="float: right">115</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Protein (g)</span>
+                            <span style="float: right">0</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Fat (g)</span>
+                            <span style="float: right">0</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Carbohydrate (g)</span>
+                            <span style="float: right">29</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m3">
+                      <div class="card hoverable white darken-1">
+                        <div class="card-content green-text">
+                          <span style="height: 50px;" class="card-title small">ALMONDS; WHOLE 1 OZ</span>
                         </div>
                         <div class="card-action" style="height: 40px">
                           <span style="float: left">Calories(kcal)</span>
@@ -277,6 +327,123 @@
                         </div>
                       </div>
                     </div>
+                    <div class="col s12 m3">
+                        <div class="card hoverable white darken-1">
+                          <div class="card-content green-text">
+                            <span style="height: 50px;" class="card-title small">ALMONDS; WHOLE 1 OZ</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                            <span style="float: left">Calories(kcal)</span>
+                            <span style="float: right">165</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                              <span style="float: left">Protein (g)</span>
+                              <span style="float: right">6</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                              <span style="float: left">Fat (g)</span>
+                              <span style="float: right">15</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                              <span style="float: left">Carbohydrate (g)</span>
+                              <span style="float: right">6</span>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m3">
+                      <div class="card hoverable white darken-1">
+                        <div class="card-content green-text">
+                          <span style="height: 50px;" class="card-title small">APPLE PIE 1 PIE</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                          <span style="float: left">Calories(kcal)</span>
+                          <span style="float: right">2420</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Protein (g)</span>
+                            <span style="float: right">21</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Fat (g)</span>
+                            <span style="float: right">105</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Carbohydrate (g)</span>
+                            <span style="float: right">360</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m3">
+                      <div class="card hoverable white darken-1">
+                        <div class="card-content green-text">
+                          <span style="height: 50px;" class="card-title small">APPLE JUICE; CANNED 1 CUP</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                          <span style="float: left">Calories(kcal)</span>
+                          <span style="float: right">115</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Protein (g)</span>
+                            <span style="float: right">0</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Fat (g)</span>
+                            <span style="float: right">0</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Carbohydrate (g)</span>
+                            <span style="float: right">29</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m3">
+                      <div class="card hoverable white darken-1">
+                        <div class="card-content green-text">
+                          <span style="height: 50px;" class="card-title small">ALMONDS; WHOLE 1 OZ</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                          <span style="float: left">Calories(kcal)</span>
+                          <span style="float: right">165</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Protein (g)</span>
+                            <span style="float: right">6</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Fat (g)</span>
+                            <span style="float: right">15</span>
+                        </div>
+                        <div class="card-action" style="height: 40px">
+                            <span style="float: left">Carbohydrate (g)</span>
+                            <span style="float: right">6</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card hoverable white darken-1">
+                          <div class="card-content green-text">
+                            <span style="height: 50px;" class="card-title small">ALMONDS; WHOLE 1 OZ</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                            <span style="float: left">Calories(kcal)</span>
+                            <span style="float: right">165</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                              <span style="float: left">Protein (g)</span>
+                              <span style="float: right">6</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                              <span style="float: left">Fat (g)</span>
+                              <span style="float: right">15</span>
+                          </div>
+                          <div class="card-action" style="height: 40px">
+                              <span style="float: left">Carbohydrate (g)</span>
+                              <span style="float: right">6</span>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </section>
             <section id="page-profile" style="top:0; bottom:0; left:0; right:0;" class="mdl-grid fp-content fp-signed-in-only" style="display: none;">
@@ -285,7 +452,7 @@
                             <div class="card col s12 m6">
                                 <div class="card-image col s12">
                                     <img id="user-dp" style='object-fit: contain' src="images/carrot.gif"/>
-                                    <span class="card-title">Card Title</span>
+                                    <span style="color:black" class="card-title"><b>Shyam Sundar</b></span>
                                     <a class="btn-floating btn-large tooltipped halfway-fab waves-effect waves-light red" data-position="top" data-delay="25" data-tooltip="Edit profile"><i class="material-icons">edit</i></a>
                                 </div>
                                 <div class="card-content">
@@ -304,28 +471,19 @@
 
         <!-- jQuery -->
         <script src="/libs/jquery/dist/jquery.min.js"></script>
-        <script src="scripts/materialize.js"></script>
-        <script src="scripts/init.js"></script>
-        <script src="scripts/particles.min.js"></script>
-        <script src="scripts/meth.js"></script>
-
+        
         <!-- Latinize -->
         <script src="/libs/latinize/latinize.js"></script>
 
         <script src="/__/firebase/4.1.3/firebase.js"></script>
         <script src="/__/firebase/init.js"></script>
+        <script src="/scripts/firebase.js"></script>
+        <script src="/scripts/routing.js"></script>
+        <script src="/scripts/auth.js"></script>
 
-        <!-- Friendly Pix ES5 scripts -->
-        <!-- <script src="/scripts-es5/utils.js"></script> -->
-        <script src="/scripts-es5/firebase.js"></script>
-        <script src="/scripts-es5/auth.js"></script>
-        <!-- <script src="/scripts-es5/search.js"></script> -->
-        <!-- <script src="/scripts-es5/uploader.js"></script> -->
-        <!-- <script src="/scripts-es5/messaging.js"></script> -->
-        <!-- <script src="/scripts-es5/userpage.js"></script> -->
-        <!-- <script src="/scripts-es5/post.js"></script> -->
-        <!-- <script src="/scripts-es5/feed.js"></script> -->
-        <script src="/scripts-es5/routing.js"></script>
+        <script src="scripts/materialize.js"></script>
+        <script src="scripts/init.js"></script>
+        <script src="scripts/particles.min.js"></script>
 
 
         <style>
@@ -362,6 +520,7 @@
                 align-content: bottom right;
             }
         </style>
+
         <script>
             $('#login_button').click(() => {
                 $('#signup_error').css('display', 'none');
@@ -370,7 +529,7 @@
                 $('#signup_error').css('display', 'none');
             });
             $(document).ready( () => {
-                var obj = jQuery('#splash-carousel').clone();
+            var obj = jQuery('#splash-carousel').clone();
             var small_screen_width = 600;
             if ($(window).width() >= small_screen_width){
                 $('.small-screen-only').css('display', 'none');
@@ -395,11 +554,15 @@
                 }
             });
             
-            $('#search_autocomplete').autocomplete({
+            $('#search_input').autocomplete({
                     data: {
-                    "Apple": null,
-                    "Microsoft": null,
-                    "Google": 'https://placehold.it/250x250'
+                    "Apple Pie": null,
+                    "Apple Juice": null,
+                    "Almonds": null,
+                    "Corn Flakes" : null,
+                    "Bamboo Shoots" : null,
+                    "Banana" : null,
+                    "Cherry" : null
                     },
                     limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
                     onAutocomplete: function(val) {
@@ -444,20 +607,5 @@
            });
 
         </script>
-
-
-
-        <!-- Friendly Pix ES2015 scripts -->
-        <!-- Uncomment and replace scripts above to serve ES2015 scripts directly -->
-        <!-- <script src="/scripts/utils.js"></script>
-        <script src="/scripts/firebase.js"></script>
-        <script src="/scripts/auth.js"></script>
-        <script src="/scripts/search.js"></script>
-        <script src="/scripts/uploader.js"></script>
-        <script src="/scripts/messaging.js"></script>
-        <script src="/scripts/userpage.js"></script>
-        <script src="/scripts/post.js"></script>
-        <script src="/scripts/feed.js"></script>
-        <script src="/scripts/routing.js"></script> -->
     </body>
 </html>
