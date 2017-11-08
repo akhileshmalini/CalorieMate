@@ -1,23 +1,37 @@
 <% include nav.ejs%>
 <nav>
   <div class="nav-wrapper" style="background-color:#148750">
-    <form>
+    <form action="/browse" method="GET">
       <div class="input-field">
-        <input id="query" ng-model="query" type="search" required="" >
+        <input id="query"  name="query" type="search" required="" >
         <label for="search"><i class="material-icons">search</i></label>
         <i class="material-icons">close</i>
+        <input type="submit"  style="position: absolute; left: -9999px"/>
+        
       </div>
     </form>
   </div>
 </nav>
 
-        
-
+    <br><br>    
+<div class="row">
+<div class="container ">
+    <% for(var i=0; i <26; i++) {%>
+        <div class="col s1 center-align">
+            <h5 ><a style="color:#148750" href="/browse?query=<%= String.fromCharCode(65 + i) %>"><%= String.fromCharCode(65 + i) %></a></h5>
+          </div>
+    <%}%>
+</div>
+</div>
 <div class="row">
 
-
+    <% if(res=="No"){%>
+          <h5 class="center-align">No Items Found</h5>      
+      <% }else {%>
       <% for(var i=0; i<res.length; i++) {%>
-      <div class="container card col s12 m4 l4">
+          
+            <div class="container card col s12 m5" style="margin-left:5%">
+        
           <div class="card-content">
             <p>            <%= res[i].name  %>
             </p>
@@ -36,13 +50,21 @@
             <div id="test6<%= i %>"> <%= res[i].fat  %></div>
             <div id="test7<%= i %>"> <%= res[i].protein  %></div>
           </div>
+        
         </div>
-
+      
+      
 
         <% } %>
-  
+        
+
+        <% } %>
+
+    
 
 </div>
+
+
 
 
 
