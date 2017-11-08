@@ -11,6 +11,7 @@
 
   var database = firebase.database();
 
+
 function togglesignOut(){
     firebase.auth().signOut();
     alert("User has Signed Out.");
