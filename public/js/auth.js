@@ -57,10 +57,9 @@ function toggleSignIn() {
 
 //Sign Up Function
 function handleSignUp() {
-  var email = document.getElementById('email').value;
+  var email = document.getElementById('emails').value;
   var password = document.getElementById('password').value;
   var repassword = document.getElementById('repassword').value;
-  
   var fname = document.getElementById('fname').value;
   var lname = document.getElementById('lname').value;
   var dob = document.getElementById('dob').value;

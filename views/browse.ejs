@@ -1,0 +1,65 @@
+<% include nav.ejs%>
+<nav>
+  <div class="nav-wrapper" style="background-color:#148750">
+    <form>
+      <div class="input-field">
+        <input id="query" ng-model="query" type="search" required="" >
+        <label for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+  </div>
+</nav>
+
+        
+
+<div class="row">
+
+
+      <% for(var i=0; i<res.length; i++) {%>
+      <div class="container card col s12 m4 l4">
+          <div class="card-content">
+            <p>            <%= res[i].name  %>
+            </p>
+          </div>
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a href="#test4<%= i %>">Calories</a></li>
+              <li class="tab"><a class="active" href="#test5<%= i %>">Carbohydrate</a></li>
+              <li class="tab"><a href="#test6<%= i %>">Fat</a></li>
+              <li class="tab"><a href="#test7<%= i %>">Protein</a></li>
+            </ul>
+          </div>
+          <div class="card-content grey lighten-4">
+            <div id="test4<%= i %>"> <%= res[i].calories  %></div>
+            <div id="test5<%= i %>"> <%= res[i].carbohydrate  %></div>
+            <div id="test6<%= i %>"> <%= res[i].fat  %></div>
+            <div id="test7<%= i %>"> <%= res[i].protein  %></div>
+          </div>
+        </div>
+
+
+        <% } %>
+  
+
+</div>
+
+
+
+<% include footer.ejs%>
+
+
+
+  
+
+
+
+
+
+
+
+
+   
+  
+   
+
