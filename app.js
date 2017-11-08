@@ -109,10 +109,46 @@ res.render('register');
 });
 
 app.get("/uBrowse", function (req, res) {
-res.render('userbrowse');
-});
 
-
+    var letter= req.query.query;
+    if (letter==undefined)
+        letter = 'A'
+    
+    
+    var ref = db.ref("/data");
+    ref.once("value", function(snapshot) {
+        var itemCollection=[];
+    
+        snapshot.forEach(function (childSnapshot) {
+    
+            if(childSnapshot.key.startsWith(letter.toUpperCase())){
+            itemCollection.push({
+                name:childSnapshot.key,
+                carbohydrate:childSnapshot.val().carbohydrate,
+                fat:childSnapshot.val().fat,
+                calories:childSnapshot.val().calories,
+                protein:childSnapshot.val().protein
+            });
+        }
+    
+            });
+    
+            if(itemCollection.length==0){
+                res.render('userbrowse',{res:"No"});
+            }else{
+                res.render('userbrowse',{res:itemCollection});
+            }
+    
+            
+            
+        });
+    
+    
+    
+    
+    
+    });
+    
 app.listen(app.get('port'), function () {
 console.log('App is running on port', app.get('port'));
 });
