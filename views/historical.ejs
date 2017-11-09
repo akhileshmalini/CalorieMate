@@ -1,0 +1,82 @@
+<% include usernav.ejs%>
+
+
+
+  
+      <br><br>    
+  <div class="row">
+  <div class="container ">
+        <div class="row">
+                <% if(res=="No"){%>
+                      <h5 class="center-align">No Items Added</h5>      
+                  <% }else {%>
+      
+
+        <ul class="collapsible" data-collapsible="accordion">      
+                <li>
+                        <div class="collapsible-header">View Items Here.</div>
+                        <div style="background:white;"class="collapsible-body"></div>
+                        </li>
+                        
+
+                          <% for(var i=1; i<res.length; i++) {%>                             
+                                <li>
+                                        <div class="collapsible-header"><i class="material-icons">date_range</i><%=res[i].datea%></div>
+                                        <div style="background:white;"class="collapsible-body">
+
+                                            <div class="row">
+                                                <div class="col s12 m3 l3">
+                                                        Carbohydrate <br><%=over[i].overall.carbohydrate%>
+                                                </div>
+                                                <div class="col s12 m3 l3">
+                                                        Fat<br><%=over[i].overall.fat%>
+                                                </div>
+                                                <div class="col s12 m3 l3">
+                                                        Protein<br><%=over[i].overall.protein%>
+                                                </div>
+                                                <div class="col s12 m3 l3">
+                                                        Calories<br><%=over[i].overall.calories%>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                      </li>
+                                                     
+                            <% } %>
+                            
+                    
+                            <% } %>
+                    
+                        </ul>        
+                    
+                    </div>
+                    
+            
+
+                
+              
+      
+  </div>
+  </div>
+  
+  
+
+
+
+<% include footer.ejs%>
+
+
+
+  
+
+
+
+
+
+
+
+
+   
+  
+   
+

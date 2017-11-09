@@ -2,124 +2,82 @@
 
 
 
-    <p>This is Dashboard</p>
-
-
-
-
-
-
-
-    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-large waves-effect waves-light red modal-trigger"  href="#modal1">
-              <i class="material-icons">add</i>
-            </a>
-            
-          </div>
-
-
-
-    <!-- Modal Structure -->
-
-
-    <!-- ..................................................................................................................................... -->
-    <div id="modal1" class="modal row ">
-
-
-
-        <div class=" modal-content">
-            <form class="form" id="form" action="/addUserItem" method="post">
-                <div class="row">
-                    <div class="input-field col s12 center">
-                        <h3 class="center " style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">FoodItem</h3>
-                    </div>
-                </div>
-
-                <div class="row margin">
-                    <div class="input-field col s12 m12 l12">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="iname" type="text" name="itemname">
-                        <label for="iname" class="center-align">Item Name</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col s12 l12 m12 ">
-                        <div class="row margin">
-                            <div class="input-field col s12 m6 l6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="calories" name="calories" type="text">
-                                <label for="calories" class="center-align">Calories</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="carbs" name="carbs" type="text">
-                                <label for="carbs" class="center-align">Carbohydrates</label>
-                            </div>
-                        </div>
-                        <div class="row margin">
-                            <div class="input-field col s12 m6 l6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="protein" name="protein" type="text">
-                                <label for="protein" class="center-align">Protein</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="fat" name="fat" type="text">
-                                <label for="fat" class="center-align">Fat</label>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-
-                </div>
-
-                <div class="row">
-                    <div class="col s3"></div>
-
-
-                    <button style="background-color:#1dc072" class="btn waves-effect waves-light col s6" type="submit" name="action">Add Item
-                                        <i class="material-icons right">send</i>
-                                      </button>
-                    <div class="col s3"></div>
-
-                </div>
-
-            </form>
+<div class="container">
+    <div class="row"></div>
+    <div class="row">
+        
+        <div class="col s12 m12 l4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <i class="large material-icons" style="padding: 15px">center_focus_strong</i>
+            </div>
+            <div id="AX" class="card-content">
+                
+            </div>
         </div>
-
-        <div class="col s12 m2 l2">
-            <!-- Note that "m4 l3" was added -->
-
         </div>
-    </div>
-
-    <!-- ..................................................................................................................................... -->
-
-
-
-    <script>
-            $(document).ready(function () {
-                // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-                $('.modal').modal();
-            });
-    
         
 
-            $('#form').submit(function(eventObj) {
-        $(this).append('<input type="hidden" id="uid" name="uid" value="'+firebase.auth().currentUser.uid +'" /> ');
-        return true;
-    });
+        <div class="col s12 m12 l4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <i class="large material-icons" style="padding: 15px">create</i>
+                </div>
+                <div id="BX" class="card-content">
+                    
+                </div>
+            </div>
+            </div>
+
+            <div class="col s12 m12 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <i class="large material-icons" style="padding: 15px">date_range</i>
+                    </div>
+                    <div id="CX" class="card-content">
+                       
+                    </div>
+                </div>
+                </div>
+
+
+        </div>
+        </div>
+    </div>
+        
+
     
-        </script>
+    
+    <script>
+
+ // Listening for auth state changes.
+ firebase.auth().onAuthStateChanged(function(user) {
+            if (user) { 
+                 // User is signed in.
+          
+
+                 document.getElementById("AX").innerHTML='<a href="/consume?uid='+user.uid +'"><span class="card-title activator grey-text text-darken-4">Track Consumption<i class="material-icons right">chevron_right</i></span>\
+              <p style="display:none; ">Click here</p>\
+                <p>Track Your Consumption Here</p></a>';
+    
+                document.getElementById("BX").innerHTML='<a href="/customItem?uid='+user.uid +'"><span class="card-title activator grey-text text-darken-4">Custom Items<i class="material-icons right">chevron_right</i></span>\
+                  <p style="display:none; ">Click here</p>\
+                    <p>Add Custom Food Items Here</p></a>';
 
 
+                    document.getElementById("CX").innerHTML=' <a href="/historical?uid='+user.uid +'"> <span class="card-title activator grey-text text-darken-4">Historical Consumption<i class="material-icons right">chevron_right</i></span>\
+                      <p style="display:none; ">Click here</p>\
+                        <p>Track Your Historical Consumption Here</p></a>'
 
 
+            } else {
+            // User is signed out.
+            window.location="/dashboard";              
+                }
+            });
+
+
+    </script>
 
 
     <% include footer.ejs%>

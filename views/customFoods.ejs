@@ -1,0 +1,163 @@
+<% include usernav.ejs%>
+
+
+
+<div class="row">
+        
+            <% if(res=="No"){%>
+                  <h5 class="center-align">No Items Found</h5>      
+              <% }else {%>
+              <% for(var i=0; i<res.length; i++) {%>
+                  
+                    <div class="container card col s12 m5" style="margin-left:5%">
+                
+                  <div class="card-content">
+                    <p>            <%= res[i].name  %>
+                    </p>
+                  </div>
+                  <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                      <li class="tab"><a href="#test4<%= i %>">Calories</a></li>
+                      <li class="tab"><a class="active" href="#test5<%= i %>">Carbohydrate</a></li>
+                      <li class="tab"><a href="#test6<%= i %>">Fat</a></li>
+                      <li class="tab"><a href="#test7<%= i %>">Protein</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-content grey lighten-4">
+                    <div id="test4<%= i %>"> <%= res[i].calories  %></div>
+                    <div id="test5<%= i %>"> <%= res[i].carbohydrate  %></div>
+                    <div id="test6<%= i %>"> <%= res[i].fat  %></div>
+                    <div id="test7<%= i %>"> <%= res[i].protein  %></div>
+                  </div>
+                
+                </div>
+              
+              
+        
+                <% } %>
+                
+        
+                <% } %>
+        
+            
+        
+        </div>
+        
+
+
+
+
+
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+            <a class="btn-floating btn-large waves-effect waves-light red modal-trigger"  href="#modal1">
+              <i class="material-icons">add</i>
+            </a>
+            
+          </div>
+
+
+
+    <!-- Modal Structure -->
+
+
+    <!-- ..................................................................................................................................... -->
+    <div id="modal1" class="modal row ">
+
+
+
+        <div class=" modal-content">
+            <form class="form" id="form" action="/addUserItem" method="post">
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <h3 class="center " style="font-family:Streetwear;text-shadow: 0px 2px 2px black;  color:#1dc072">FoodItem</h3>
+                    </div>
+                </div>
+
+                <div class="row margin">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="iname" type="text" name="itemname">
+                        <label for="iname" class="center-align">Item Name</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 l12 m12 ">
+                        <div class="row margin">
+                            <div class="input-field col s12 m6 l6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="calories" name="calories" type="number">
+                                <label for="calories" class="center-align">Calories</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="carbs" name="carbs" type="number">
+                                <label for="carbs" class="center-align">Carbohydrates</label>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s12 m6 l6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="protein" name="protein" type="number">
+                                <label for="protein" class="center-align">Protein</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="fat" name="fat" type="number">
+                                <label for="fat" class="center-align">Fat</label>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col s3"></div>
+
+
+                    <button style="background-color:#1dc072" class="btn waves-effect waves-light col s6" type="submit" name="action">Add Item
+                                        <i class="material-icons right">send</i>
+                                      </button>
+                    <div class="col s3"></div>
+
+                </div>
+
+            </form>
+        </div>
+
+        <div class="col s12 m2 l2">
+            <!-- Note that "m4 l3" was added -->
+
+        </div>
+    </div>
+
+    <!-- ..................................................................................................................................... -->
+
+
+
+    <script>
+            $(document).ready(function () {
+                // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+                $('.modal').modal();
+            });
+    
+        
+
+            $('#form').submit(function(eventObj) {
+        $(this).append('<input type="hidden" id="uid" name="uid" value="'+firebase.auth().currentUser.uid +'" /> ');
+        return true;
+    });
+    
+        </script>
+
+
+
+
+
+
+    <% include footer.ejs%>
